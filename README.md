@@ -59,7 +59,7 @@ dotnet build ScreenshotProgramm.slnx
 ## Start
 
 ```bash
-dotnet run --project /home/runner/work/Screenshot-programm/Screenshot-programm/ScreenshotProgramm/ScreenshotProgramm.csproj
+dotnet run --project ScreenshotProgramm/ScreenshotProgramm.csproj
 ```
 
 ## Bedienung

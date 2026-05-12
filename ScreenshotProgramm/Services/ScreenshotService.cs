@@ -34,7 +34,7 @@ public sealed class ScreenshotService
     {
         if (bounds.Width <= 0 || bounds.Height <= 0)
         {
-            throw new InvalidOperationException("Ungültiger Aufnahmebereich.");
+            throw new InvalidOperationException("invalid_capture_region");
         }
 
         using var bitmap = new Bitmap(bounds.Width, bounds.Height, System.Drawing.Imaging.PixelFormat.Format32bppArgb);

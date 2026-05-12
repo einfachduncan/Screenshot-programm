@@ -6,11 +6,11 @@
         KeyDown="OnWindowKeyDown">
     <DockPanel>
         <ToolBar DockPanel.Dock="Top">
-            <Button Content="Text" Click="SelectTextTool"/>
-            <Button Content="Rechteck" Click="SelectRectangleTool"/>
-            <Button Content="Ellipse" Click="SelectEllipseTool"/>
-            <Button Content="Pfeil" Click="SelectArrowTool"/>
-            <Button Content="Blur" Click="SelectBlurTool"/>
+            <Button x:Name="TextToolButton" Content="Text" Click="SelectTextTool"/>
+            <Button x:Name="RectangleToolButton" Content="Rechteck" Click="SelectRectangleTool"/>
+            <Button x:Name="EllipseToolButton" Content="Ellipse" Click="SelectEllipseTool"/>
+            <Button x:Name="ArrowToolButton" Content="Pfeil" Click="SelectArrowTool"/>
+            <Button x:Name="BlurToolButton" Content="Blur" Click="SelectBlurTool"/>
             <Separator/>
             <ComboBox x:Name="ColorPicker" Width="120" SelectedIndex="0">
                 <ComboBoxItem Content="Red" />

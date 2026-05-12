@@ -84,7 +84,7 @@ public partial class MainWindow : Window
         var ok = _hotkeyManager.Register(this, App.SettingsService.Settings.HotkeyModifiers, App.SettingsService.Settings.HotkeyKey);
         if (!ok)
         {
-            _viewModel.Status = App.LocalizationService["status_error"] + "Hotkey konnte nicht registriert werden.";
+            _viewModel.Status = App.LocalizationService["status_error"] + App.LocalizationService["hotkey_register_failed"];
         }
     }
 
@@ -145,7 +145,10 @@ public partial class MainWindow : Window
         }
         catch (Exception ex)
         {
-            _viewModel.Status = App.LocalizationService["status_error"] + ex.Message;
+            var message = ex.Message == "invalid_capture_region"
+                ? App.LocalizationService["invalid_capture_region"]
+                : ex.Message;
+            _viewModel.Status = App.LocalizationService["status_error"] + message;
         }
     }
 

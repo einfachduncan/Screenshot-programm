@@ -36,6 +36,11 @@ public partial class EditorWindow : Window
         Title = _localizationService["editor_title"];
         SaveButton.Content = _localizationService["save"];
         CancelButton.Content = _localizationService["cancel"];
+        TextToolButton.Content = _localizationService["text"];
+        RectangleToolButton.Content = _localizationService["rectangle"];
+        EllipseToolButton.Content = _localizationService["ellipse"];
+        ArrowToolButton.Content = _localizationService["arrow"];
+        BlurToolButton.Content = _localizationService["blur"];
 
         if (darkMode)
         {
