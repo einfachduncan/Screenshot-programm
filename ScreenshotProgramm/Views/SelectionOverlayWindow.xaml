@@ -1,0 +1,16 @@
+<Window x:Class="ScreenshotProgramm.Views.SelectionOverlayWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="#40000000"
+        Topmost="True"
+        ShowInTaskbar="False"
+        WindowState="Maximized"
+        Cursor="Cross">
+    <Canvas x:Name="OverlayCanvas" Background="Transparent" MouseLeftButtonDown="OnMouseLeftButtonDown" MouseMove="OnMouseMove" MouseLeftButtonUp="OnMouseLeftButtonUp">
+        <Rectangle x:Name="SelectionRectangle" Stroke="#FF2563EB" StrokeThickness="2" Fill="#402563EB" Visibility="Collapsed" />
+        <Ellipse x:Name="SelectionEllipse" Stroke="#FF16A34A" StrokeThickness="2" Fill="#4016A34A" Visibility="Collapsed" />
+        <Polyline x:Name="LassoLine" Stroke="#FFDC2626" StrokeThickness="2" Visibility="Collapsed" />
+    </Canvas>
+</Window>

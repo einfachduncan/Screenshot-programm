@@ -1,0 +1,82 @@
+<Window x:Class="ScreenshotProgramm.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:models="clr-namespace:ScreenshotProgramm.Models"
+        Title="{Binding AppTitle}" Height="760" Width="980"
+        MinHeight="700" MinWidth="920">
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Padding="14" Background="{DynamicResource CardBackgroundBrush}" CornerRadius="10" Margin="0,0,0,12">
+            <StackPanel>
+                <TextBlock Text="{Binding CaptureTitle}" FontSize="20" FontWeight="SemiBold" Margin="0,0,0,8"/>
+                <WrapPanel>
+                    <Button Content="{Binding RectangleLabel}" Command="{Binding CaptureCommand}" CommandParameter="{x:Static models:CaptureShape.Rectangle}" MinWidth="130" />
+                    <Button Content="{Binding EllipseLabel}" Command="{Binding CaptureCommand}" CommandParameter="{x:Static models:CaptureShape.Ellipse}" MinWidth="130" />
+                    <Button Content="{Binding LassoLabel}" Command="{Binding CaptureCommand}" CommandParameter="{x:Static models:CaptureShape.Lasso}" MinWidth="130" />
+                    <Button Content="{Binding WindowLabel}" Command="{Binding CaptureCommand}" CommandParameter="{x:Static models:CaptureShape.Window}" MinWidth="130" />
+                    <Button Content="{Binding FullscreenLabel}" Command="{Binding CaptureCommand}" CommandParameter="{x:Static models:CaptureShape.Fullscreen}" MinWidth="130" />
+                </WrapPanel>
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="1" Padding="14" Background="{DynamicResource CardBackgroundBrush}" CornerRadius="10" Margin="0,0,0,12">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0">
+                    <TextBlock Text="{Binding SettingsTitle}" FontSize="20" FontWeight="SemiBold" Margin="0,0,0,8"/>
+
+                    <TextBlock Text="{Binding HotkeyLabel}" FontWeight="SemiBold" Margin="4,2"/>
+                    <WrapPanel>
+                        <CheckBox x:Name="CtrlModifier" Content="Ctrl" Margin="4" />
+                        <CheckBox x:Name="ShiftModifier" Content="Shift" Margin="4" />
+                        <CheckBox x:Name="AltModifier" Content="Alt" Margin="4" />
+                        <CheckBox x:Name="WinModifier" Content="Win" Margin="4" />
+                        <ComboBox Width="140" SelectedItem="{Binding Settings.HotkeyKey, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding AvailableKeys}" />
+                    </WrapPanel>
+
+                    <TextBlock Text="{Binding SavePathLabel}" FontWeight="SemiBold" Margin="4,2"/>
+                    <DockPanel LastChildFill="True">
+                        <Button Content="{Binding BrowseLabel}" Command="{Binding BrowsePathCommand}" MinWidth="110" DockPanel.Dock="Right"/>
+                        <TextBox Text="{Binding Settings.SavePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="4" />
+                    </DockPanel>
+
+                    <WrapPanel>
+                        <CheckBox Content="{Binding AutoSaveLabel}" IsChecked="{Binding Settings.AutoSave, Mode=TwoWay}" Margin="4" />
+                        <CheckBox Content="{Binding SoundLabel}" IsChecked="{Binding Settings.PlaySound, Mode=TwoWay}" Margin="4" />
+                        <CheckBox Content="{Binding DarkModeLabel}" IsChecked="{Binding Settings.DarkMode, Mode=TwoWay}" Margin="4" Checked="DarkModeChanged" Unchecked="DarkModeChanged" />
+                    </WrapPanel>
+
+                    <WrapPanel>
+                        <TextBlock Text="{Binding FormatLabel}" VerticalAlignment="Center" Margin="4" />
+                        <ComboBox Width="130" ItemsSource="{Binding AvailableFormats}" SelectedItem="{Binding Settings.ScreenshotFormat, Mode=TwoWay}" />
+                        <TextBlock Text="{Binding DelayLabel}" VerticalAlignment="Center" Margin="8,4,4,4" />
+                        <TextBox Width="80" Text="{Binding Settings.DelaySeconds, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        <TextBlock Text="{Binding LanguageLabel}" VerticalAlignment="Center" Margin="8,4,4,4"/>
+                        <ComboBox Width="100" ItemsSource="{Binding Languages}" SelectedItem="{Binding Settings.Language, Mode=TwoWay}" SelectionChanged="LanguageSelectionChanged" />
+                    </WrapPanel>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" Margin="16,0,0,0">
+                    <Button Content="{Binding OpenFolderLabel}" Command="{Binding OpenFolderCommand}"/>
+                    <Button Content="{Binding CopyLastLabel}" Command="{Binding CopyLastCommand}"/>
+                    <Button Content="{Binding SettingsTitle}" Command="{Binding SaveSettingsCommand}"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <StatusBar Grid.Row="2" Background="{DynamicResource CardBackgroundBrush}">
+            <StatusBarItem>
+                <TextBlock Text="{Binding Status}" />
+            </StatusBarItem>
+        </StatusBar>
+    </Grid>
+</Window>

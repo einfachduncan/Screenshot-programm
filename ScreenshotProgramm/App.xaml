@@ -1,0 +1,28 @@
+<Application x:Class="ScreenshotProgramm.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Application.Resources>
+        <SolidColorBrush x:Key="AppBackgroundBrush" Color="#FFF7F7F9" />
+        <SolidColorBrush x:Key="AppForegroundBrush" Color="#FF1F2937" />
+        <SolidColorBrush x:Key="CardBackgroundBrush" Color="#FFFFFFFF" />
+        <SolidColorBrush x:Key="AccentBrush" Color="#FF2563EB" />
+        <Style TargetType="Window">
+            <Setter Property="Background" Value="{DynamicResource AppBackgroundBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource AppForegroundBrush}" />
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="4" />
+            <Setter Property="Padding" Value="10,6" />
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="4" />
+            <Setter Property="Padding" Value="6" />
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="Margin" Value="4" />
+            <Setter Property="Padding" Value="6" />
+        </Style>
+    </Application.Resources>
+</Application>
